@@ -77,7 +77,7 @@ int main() {
 			// We use a std::algorithm, to copy only those combinations to the result, which fulfil your condition
 			std::copy_if(vBig.begin(), vBig.end(), std::back_inserter(result), [&vSmall](std::vector<int>& vb) {
 				// Copy only if, none of the "small" combinations is included in the "big" combinations 
-				return std::any_of(vSmall.begin(), vSmall.end(), [&vb](std::vector<int>& vs) {
+				return std::none_of(vSmall.begin(), vSmall.end(), [&vb](std::vector<int>& vs) {
 					return std::includes(vb.begin(), vb.end(), vs.begin(), vs.end()); }); });
 
 			// Iterate over all resulting combinations
